@@ -1,0 +1,33 @@
+package spring.initializer.method2;
+
+import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import spring.configuration.MvcConfig;
+
+/**
+ * 1. Extends the AbstractAnnotationConfigDispatcherServletInitializer
+ * 2. Implements the abstract methods in order to :
+ *    2.1 Initialize the configuration classes (eg. MvcConfig.class)
+ *    2.2 Configure the DispatcherServlet URL mapping
+ * @author enriquevillegas
+ *
+ */
+public class MyAbstractAnnotationConfigDispatcherServletInitializer
+		extends AbstractAnnotationConfigDispatcherServletInitializer {
+
+	@Override
+	protected Class<?>[] getRootConfigClasses() {
+		return null; /// new Class[]{RootConfig.class};
+	}
+
+	@Override
+	protected Class<?>[] getServletConfigClasses() {
+		return new Class[] { MvcConfig.class };
+	}
+
+	@Override
+	protected String[] getServletMappings() {
+		return new String[] { "/" };
+	}
+
+}
